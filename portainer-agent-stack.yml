@@ -39,7 +39,7 @@ networks:
     driver: overlay
     attachable: true
     driver_opts:
-      encrypted: true
+      encrypted: "true"
 
 volumes:
   portainer_data:
