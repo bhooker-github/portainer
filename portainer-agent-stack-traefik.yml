@@ -33,11 +33,11 @@ services:
       placement:
         constraints: [node.role == manager]
       labels:
-        - traefik.docker.network=traefik-public
-        - traefik.backend={{ .Stack.Name }}_portainer
-        - traefik.port=9000
-        - "traefik.frontend.rule=Host:portainer.fni-stl.com"
+        - traefik.frontend.rule=Host:portainer.fni-stl.com
         - traefik.enable=true
+        - traefik.port=9000
+        - traefik.tags=${TRAEFIK_PUBLIC_TAG:-traefik-public}
+        - traefik.docker.network=traefik-public
         # Traefik service that listens to HTTP
         - traefik.redirectorservice.frontend.entryPoints=http
         - traefik.redirectorservice.frontend.redirect.entryPoint=https
