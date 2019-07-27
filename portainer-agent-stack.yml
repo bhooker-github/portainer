@@ -36,10 +36,6 @@ services:
 
 networks:
   agent_network:
-    driver: overlay
-    attachable: true
-    driver_opts:
-      encrypted: "true"
-
+    external: true
 volumes:
   portainer_data:
